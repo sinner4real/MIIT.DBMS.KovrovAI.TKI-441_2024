@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a7e76447-a02e-48df-8f93-9c3cd7b48ccb}</ProjectGuid>
-    <RootNamespace>triangle</RootNamespace>
+    <ProjectGuid>{5f1e0893-5d6e-4d36-9422-8cd4de7be148}</ProjectGuid>
+    <RootNamespace>struckk</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -131,15 +131,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="figure.h" />
+    <ClInclude Include="rooot.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="figure.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\struckk\struckk.vcxproj">
-      <Project>{5f1e0893-5d6e-4d36-9422-8cd4de7be148}</Project>
-    </ProjectReference>
+    <ClCompile Include="rooot.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
