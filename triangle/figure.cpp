@@ -1,4 +1,4 @@
-#include <stdexcept>
+п»ї#include <stdexcept>
 #include <cmath>
 #include "figure.h"
 #include <sstream>
@@ -7,7 +7,7 @@ using namespace std;
 
 
 /*
-*@brief конструктор обычный
+*@brief РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РѕР±С‹С‡РЅС‹Р№
 */
 redblack::redblack()
 {
@@ -16,7 +16,7 @@ redblack::redblack()
 
 
 /*
-*@brief деструктор
+*@brief РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 */
 redblack::~redblack()
 {
@@ -25,8 +25,8 @@ redblack::~redblack()
 
 
 /*
-*@brief подсчет колличества элементов дерева
-* @return колличество элементов
+*@brief РїРѕРґСЃС‡РµС‚ РєРѕР»Р»РёС‡РµСЃС‚РІР° СЌР»РµРјРµРЅС‚РѕРІ РґРµСЂРµРІР°
+* @return РєРѕР»Р»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ
 */
 int redblack::count_nodes() const
 {
@@ -34,7 +34,7 @@ int redblack::count_nodes() const
 }
 
 /*
-*@brief функция для вставки новых корней дерева
+*@brief С„СѓРЅРєС†РёСЏ РґР»СЏ РІСЃС‚Р°РІРєРё РЅРѕРІС‹С… РєРѕСЂРЅРµР№ РґРµСЂРµРІР°
 */
 void redblack::insert(int value) {
     Node* newNode = new Node(value);
@@ -77,7 +77,7 @@ void redblack::insert(int value) {
 
 
 /*
-*@brief функция для удаления корня дерева
+*@brief С„СѓРЅРєС†РёСЏ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РєРѕСЂРЅСЏ РґРµСЂРµРІР°
 */
 void redblack::delete_value(int value)
 {
@@ -97,14 +97,14 @@ void redblack::delete_value(int value)
     }
 
     if (!is_leaf(nodeToDelete->left) && !is_leaf(nodeToDelete->right)) {
-        // Найдём минимальный узел в правом поддереве (in-order successor)
+        // РќР°Р№РґС‘Рј РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СѓР·РµР» РІ РїСЂР°РІРѕРј РїРѕРґРґРµСЂРµРІРµ (in-order successor)
         Node* successor = nodeToDelete->right;
         while (successor->left != nullptr) 
         {
             successor = successor->left;
         }
         nodeToDelete->data = successor->data;
-        nodeToDelete = successor; // Удаляем преемника
+        nodeToDelete = successor; // РЈРґР°Р»СЏРµРј РїСЂРµРµРјРЅРёРєР°
     }
 
     delete_one_child(nodeToDelete);
@@ -112,7 +112,7 @@ void redblack::delete_value(int value)
 
 
 /*
-*@brief функция для поиска деда корня (корень->parent->parent)
+*@brief С„СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРёСЃРєР° РґРµРґР° РєРѕСЂРЅСЏ (РєРѕСЂРµРЅСЊ->parent->parent)
 *@return Node * n->parent->parent
 */
 Node* redblack::grandparent(Node* n) {
@@ -124,7 +124,7 @@ Node* redblack::grandparent(Node* n) {
 
 
 /*
-*@brief поиск дяди корня (брат отца)
+*@brief РїРѕРёСЃРє РґСЏРґРё РєРѕСЂРЅСЏ (Р±СЂР°С‚ РѕС‚С†Р°)
 * @return Node * n->parent->other_child
 */
 Node* redblack::uncle(Node* n) {
@@ -137,7 +137,7 @@ Node* redblack::uncle(Node* n) {
 }
 
 /*
-*@brief поворот дерева против часовой стрелки (налево)
+*@brief РїРѕРІРѕСЂРѕС‚ РґРµСЂРµРІР° РїСЂРѕС‚РёРІ С‡Р°СЃРѕРІРѕР№ СЃС‚СЂРµР»РєРё (РЅР°Р»РµРІРѕ)
 */
 void redblack::rotate_left(Node* n) {
     Node* pivot = n->right;
@@ -162,7 +162,7 @@ void redblack::rotate_left(Node* n) {
 }
 
 /*
-*@brief поворот дерева по часовой стрелке (направо)
+*@brief РїРѕРІРѕСЂРѕС‚ РґРµСЂРµРІР° РїРѕ С‡Р°СЃРѕРІРѕР№ СЃС‚СЂРµР»РєРµ (РЅР°РїСЂР°РІРѕ)
 */
 void redblack::rotate_right(Node* n) {
     Node* pivot = n->left;
@@ -188,7 +188,7 @@ void redblack::rotate_right(Node* n) {
 
 
 /*
-*@brief вспомогательная функция для удаления дерева
+*@brief РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РґРµСЂРµРІР°
 */
 void redblack::delete_tree(Node* node)
 {
@@ -200,11 +200,11 @@ void redblack::delete_tree(Node* node)
 }
 
 /*
-*@brief балансировка дерева после добавления нового узла случай 1 (теория для этого взята из википедии)
+*@brief Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєР° РґРµСЂРµРІР° РїРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ СѓР·Р»Р° СЃР»СѓС‡Р°Р№ 1 (С‚РµРѕСЂРёСЏ РґР»СЏ СЌС‚РѕРіРѕ РІР·СЏС‚Р° РёР· РІРёРєРёРїРµРґРёРё)
 */
 void redblack::insert_case1(Node* n) {
     if (n->parent == nullptr) {
-        n->color = 1; // Корень всегда черный
+        n->color = 1; // РљРѕСЂРµРЅСЊ РІСЃРµРіРґР° С‡РµСЂРЅС‹Р№
         root = n;
     }
     else {
@@ -213,15 +213,15 @@ void redblack::insert_case1(Node* n) {
 }
 
 /*
-*@brief балансировка дерева после добавления нового узла случай 2 (теория для этого взята из википедии)
+*@brief Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєР° РґРµСЂРµРІР° РїРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ СѓР·Р»Р° СЃР»СѓС‡Р°Р№ 2 (С‚РµРѕСЂРёСЏ РґР»СЏ СЌС‚РѕРіРѕ РІР·СЏС‚Р° РёР· РІРёРєРёРїРµРґРёРё)
 */
 void redblack::insert_case2(Node* n) {
-    if (n->parent->color == 1) return; // Дерево корректно
+    if (n->parent->color == 1) return; // Р”РµСЂРµРІРѕ РєРѕСЂСЂРµРєС‚РЅРѕ
     insert_case3(n);
 }
 
 /*
-*@brief балансировка дерева после добавления нового узла случай 3 (теория для этого взята из википедии)
+*@brief Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєР° РґРµСЂРµРІР° РїРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ СѓР·Р»Р° СЃР»СѓС‡Р°Р№ 3 (С‚РµРѕСЂРёСЏ РґР»СЏ СЌС‚РѕРіРѕ РІР·СЏС‚Р° РёР· РІРёРєРёРїРµРґРёРё)
 */
 void redblack::insert_case3(Node* n) {
     Node* u = uncle(n);
@@ -241,7 +241,7 @@ void redblack::insert_case3(Node* n) {
 
 
 /*
-*@brief балансировка дерева после добавления нового узла случай 4 (теория для этого взята из википедии)
+*@brief Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєР° РґРµСЂРµРІР° РїРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ СѓР·Р»Р° СЃР»СѓС‡Р°Р№ 4 (С‚РµРѕСЂРёСЏ РґР»СЏ СЌС‚РѕРіРѕ РІР·СЏС‚Р° РёР· РІРёРєРёРїРµРґРёРё)
 */
 void redblack::insert_case4(Node* n) {
     Node* g = grandparent(n);
@@ -259,7 +259,7 @@ void redblack::insert_case4(Node* n) {
 
 
 /*
-*@brief балансировка дерева после добавления нового узла случай 5 (теория для этого взята из википедии)
+*@brief Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєР° РґРµСЂРµРІР° РїРѕСЃР»Рµ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ СѓР·Р»Р° СЃР»СѓС‡Р°Р№ 5 (С‚РµРѕСЂРёСЏ РґР»СЏ СЌС‚РѕРіРѕ РІР·СЏС‚Р° РёР· РІРёРєРёРїРµРґРёРё)
 */
 void redblack::insert_case5(Node* n) {
     Node* g = grandparent(n);
@@ -276,7 +276,7 @@ void redblack::insert_case5(Node* n) {
 }
 
 /*
-*@brief вспомогательная функция для красивого вывода целого дерева
+*@brief РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РєСЂР°СЃРёРІРѕРіРѕ РІС‹РІРѕРґР° С†РµР»РѕРіРѕ РґРµСЂРµРІР°
 */
 void redblack::inorderHelper(Node* root, string indent, bool last) {
     if (root != nullptr) {
@@ -297,8 +297,8 @@ void redblack::inorderHelper(Node* root, string indent, bool last) {
 }
 
 /*
-*@brief функция для поиска брата узла
-* @return Node* брат узла
+*@brief С„СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРёСЃРєР° Р±СЂР°С‚Р° СѓР·Р»Р°
+* @return Node* Р±СЂР°С‚ СѓР·Р»Р°
 */
 Node* redblack::sibling(Node* n)
 {
@@ -474,7 +474,7 @@ void redblack::inorder() {
 }
 
 /*
-*@brief Конструктор с инициализатором списка 
+*@brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РёРЅРёС†РёР°Р»РёР·Р°С‚РѕСЂРѕРј СЃРїРёСЃРєР° 
 */
 redblack::redblack(const initializer_list<int>& values) : root(nullptr) {
     for (int value : values) {
@@ -483,14 +483,14 @@ redblack::redblack(const initializer_list<int>& values) : root(nullptr) {
 }
 
 /*
-*@brief Конструктор копирования
+*@brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 */
 redblack::redblack(const redblack& other) : root(nullptr) {
     root = copy_tree(other.root, nullptr);
 }
 
 /*
-*@brief Вспомогательная функция для копирования дерева
+*@brief Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РґРµСЂРµРІР°
 */
 Node* redblack::copy_tree(Node* other_root, Node* parent) {
     if (!other_root) return nullptr;
@@ -504,7 +504,7 @@ Node* redblack::copy_tree(Node* other_root, Node* parent) {
 }
 
 /*
-*@brief Вспомогательная функция для подсчета узлов дерева
+*@brief Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРґСЃС‡РµС‚Р° СѓР·Р»РѕРІ РґРµСЂРµРІР°
 */
 int redblack::count_nodes_helper(Node* node) const
 {
@@ -516,9 +516,9 @@ int redblack::count_nodes_helper(Node* node) const
 
 
 /*
-*@brief Конструктор перемещения
+*@brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ
 */
 redblack::redblack(redblack&& other) noexcept : root(other.root) {
-    other.root = nullptr; // Исходное дерево теряет владение
+    other.root = nullptr; // РСЃС…РѕРґРЅРѕРµ РґРµСЂРµРІРѕ С‚РµСЂСЏРµС‚ РІР»Р°РґРµРЅРёРµ
 }
 

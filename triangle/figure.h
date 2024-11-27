@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "../struckk/rooot.h"
 using namespace std;
 
@@ -46,9 +46,9 @@ class redblack
 		void insert(int value);
 		void delete_value(int value);
 		redblack();
-		redblack(const initializer_list<int>& values); // Список инициализации
-		redblack(const redblack& other); // Конструктор копирования
-		redblack(redblack&& other) noexcept; // Конструктор перемещения
+		redblack(const initializer_list<int>& values); // РЎРїРёСЃРѕРє РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
+		redblack(const redblack& other); // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+		redblack(redblack&& other) noexcept; // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ
 		~redblack();
 		int count_nodes() const;
 };
